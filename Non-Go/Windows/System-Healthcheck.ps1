@@ -34,6 +34,9 @@ if ($networking_approve -eq "y")
   Echo "netsh wlan to show wireless profiles"
   ECho "---------------------------------------------------------------------------"
   netsh wlan show profile   #View saved wireless networks
+  Echo "Show network shares"
+  ECho "---------------------------------------------------------------------------"
+  net share
 }
 
 # SYSTEM AND ENVIRONMENT INFO -----------------
