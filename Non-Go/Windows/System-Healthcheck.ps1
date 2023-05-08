@@ -78,6 +78,7 @@ if ($process_approve -eq "y")
     Echo "---------------------------------------------------------------------------"
     tasklist /svc 	#Display running processes
     Get-Process #Display running processes
+    Get-Process -FileVersionInfo 2> $null # Displays more info about the processes that may fail due to lack of permissions.
     Echo "gci pipes"
     Echo "---------------------------------------------------------------------------"
     gci \\.\pipe\   #List named pipes
