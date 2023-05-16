@@ -8,6 +8,7 @@
 # TODO: Add password protected zips.
 # TODO: Stop using transcript and write to separate files
 # TODO: Re-wording questions, more user friendly. Informed consent. Perhaps for every single command.
+# TODO: After-action sheet to tell users not to run .exes or .ps1 normally.
 #
 
 
