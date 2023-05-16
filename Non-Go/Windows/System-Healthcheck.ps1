@@ -3,6 +3,14 @@
 # Avalible under the GNU public licence V3.0.
 # Download an execute using command: PowerShell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/redbrooke/Golang-Security-Suite/main/Non-Go/Windows/System-Healthcheck.ps1'))"
 #
+
+#
+# TODO: Add password protected zips.
+# TODO: Stop using transcript and write to separate files
+# TODO: Re-wording questions, more user friendly. Informed consent. Perhaps for every single command.
+#
+
+
 Start-Transcript -Path "~\Documents\TheCyberHelpline.txt" # Outputs everything to a file.
 # WELCOME SECTION -----------------
 Echo "==========================================================================="
