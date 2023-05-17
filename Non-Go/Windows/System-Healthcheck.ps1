@@ -11,8 +11,10 @@
 # TODO: After-action sheet to tell users not to run .exes or .ps1 normally.
 #
 
+New-Item "~\Documents\HelplineOutput" -Type Directory
+Start-Transcript -Path "~\Documents\HelplineOutput\TheCyberHelpline.txt" # Outputs everything to a file.
 
-Start-Transcript -Path "~\Documents\TheCyberHelpline.txt" # Outputs everything to a file.
+
 # WELCOME SECTION -----------------
 Echo "==========================================================================="
 Echo "Welcome! This script aims to give us an overview of your system."
@@ -130,3 +132,14 @@ if ($users_approve -eq "y")
     Echo "==========================================================================="
     Get-EventLog -LogName Application -Newest 1000
 }
+
+# This will compress and send the archive. 
+$compress = @{
+  Path = "~\Documents\HelplineOutput"
+  CompressionLevel = "Fastest"
+  DestinationPath = "~/Documents"
+}
+Compress-Archive @compress
+
+
+
