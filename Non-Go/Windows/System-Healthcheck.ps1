@@ -11,7 +11,7 @@
 # TODO: After-action sheet to tell users not to run .exes or .ps1 normally.
 #
 
-New-Item "~\Documents" -Type Directory -Name "HelplineOutput"
+New-Item "~\Documents" -ItemType "directory" -Name "HelplineOutput"
 
 function Helpline-Checks {
   Start-Transcript -Path "~\Documents\HelplineOutput\TheCyberHelpline.txt" # Outputs everything to a file.
