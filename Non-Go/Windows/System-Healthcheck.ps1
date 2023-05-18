@@ -32,7 +32,7 @@ function Helpline-Checks {
     Echo "==========================================================================="
     Echo "ipconfig"
     Echo "---------------------------------------------------------------------------"
-    ipconfig /all | Out-File -FilePath ~\Documents\HelplineOutput\network.txt	# Pulls network info 
+    ipconfig /all | Out-File -FilePath ~\Documents\HelplineOutput\network.txt | Wait-Process	# Pulls network info 
     Echo "arp"
     Echo "---------------------------------------------------------------------------"
     arp -a 	| Out-File -Path ~\Documents\HelplineOutput\arp.txt  #ARP(address resolution protocol) table, links MAC addresses to IPs
@@ -136,8 +136,8 @@ function Helpline-Checks {
 } # end of helpline check function.
 
 
-Start-Job -ScriptBlock {Helpline-Checks} #Runs approved checks
-Get-Job -state Running | Wait-Job # Waits for all checks to finish before zipping up (some commands may run for longer than this script takes to execute)
+Start-Job -Name Helpline -ScriptBlock {Helpline-Checks} #Runs approved checks
+Get-Job -Name Helpline | Wait-Job # Waits for all checks to finish before zipping up (some commands may run for longer than this script takes to execute)
 Echo "Compressing"
 
 # This will compress and send the archive. 
