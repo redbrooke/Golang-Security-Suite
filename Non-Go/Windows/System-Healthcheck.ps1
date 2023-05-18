@@ -138,6 +138,7 @@ function Helpline-Checks {
 
 Start-Job -ScriptBlock {Helpline-Checks} #Runs approved checks
 Get-Job | Wait-Job # Waits for all checks to finish before zipping up (some commands may run for longer than this script takes to execute)
+Echo "Compressing"
 
 # This will compress and send the archive. 
 $compress = @{
