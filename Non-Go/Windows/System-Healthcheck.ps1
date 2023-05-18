@@ -5,7 +5,7 @@
 #
 
 #
-# TODO: Add password protected zips.
+# TODO: Add password protected zips. DONE
 # TODO: Stop using transcript and write to separate files
 # TODO: Re-wording questions, more user friendly. Informed consent. Perhaps for every single command.
 # TODO: After-action sheet to tell users not to run .exes or .ps1 normally.
@@ -32,10 +32,10 @@ if ($networking_approve -eq "y")
   Echo "==========================================================================="
   Echo "ipconfig"
   Echo "---------------------------------------------------------------------------"
-  ipconfig /all 	# Pulls network info
+  ipconfig /all | Out-File -FilePath ~\Documents\HelplineOutput\network.txt	# Pulls network info 
   Echo "arp"
   Echo "---------------------------------------------------------------------------"
-  arp -a 	#ARP(address resolution protocol) table, links MAC addresses to IPs
+  arp -a 	| Add-Content -Path ~\Documents\HelplineOutput\network.txt  #ARP(address resolution protocol) table, links MAC addresses to IPs
   Echo "route print"
   Echo "---------------------------------------------------------------------------"
   route print 	#Review routing table, basically how you reach different networks
