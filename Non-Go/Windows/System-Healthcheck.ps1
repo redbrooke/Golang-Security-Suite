@@ -35,7 +35,7 @@ function Helpline-Checks {
     ipconfig /all | Out-File -FilePath ~\Documents\HelplineOutput\network.txt	# Pulls network info 
     Echo "arp"
     Echo "---------------------------------------------------------------------------"
-    arp -a 	| Add-Content -Path ~\Documents\HelplineOutput\network.txt  #ARP(address resolution protocol) table, links MAC addresses to IPs
+    arp -a 	| Out-File -Path ~\Documents\HelplineOutput\arp.txt  #ARP(address resolution protocol) table, links MAC addresses to IPs
     Echo "route print"
     Echo "---------------------------------------------------------------------------"
     route print 	#Review routing table, basically how you reach different networks
