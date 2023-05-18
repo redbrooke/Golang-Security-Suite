@@ -11,11 +11,11 @@
 # TODO: After-action sheet to tell users not to run .exes or .ps1 normally.
 #
 
-New-Item "~\Documents\HelplineOutput" -Type Directory
-Start-Transcript -Path "~\Documents\HelplineOutput\TheCyberHelpline.txt" # Outputs everything to a file.
 
 function Helpline-Checks {
-  # WELCOME SECTION -----------------
+  New-Item "~\Documents\HelplineOutput" -Type Directory
+  Start-Transcript -Path "~\Documents\HelplineOutput\TheCyberHelpline.txt" # Outputs everything to a file.
+# WELCOME SECTION -----------------
   Echo "==========================================================================="
   Echo "Welcome! This script aims to give us an overview of your system."
   $networking_approve = Read-Host "Do you agree to share a snapshot of your networking config? (Connection info, active connections and saved wireless networks) y/n?"
