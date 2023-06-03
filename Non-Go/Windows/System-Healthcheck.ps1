@@ -17,34 +17,36 @@ function Helpline-Checks {
   New-Item "~\Documents" -ItemType "directory" -Name "HelplineOutput"
   Start-Transcript -Path "~\Documents\HelplineOutput\TheCyberHelpline.txt" # Outputs everything to a file.
 # WELCOME SECTION -----------------
-  Echo "==========================================================================="
-  Echo "Welcome! This script aims to give us an overview of your system."
+  Write-Output "==========================================================================="
+  Write-Output "Welcome! This script aims to give us an overview of your system."
   $networking_approve = Read-Host "Do you agree to share a snapshot of your networking config? (Connection info, active connections and saved wireless networks) y/n?"
   $environment_approve = Read-Host "Do you agree to share environment info? (Windows version, patches, installed programs and the names of all files) y/n?"
   $process_approve = Read-Host "Do you agree to share everything running on your system? (All running processes, Scheduled tasks and named pipes) y/n?"
   $users_approve = Read-Host "Are you comfortable sharing all accounts and their permissions? (all users, groups and administrative users) y/n?"
-  Echo "==========================================================================="
+  Write-Output "==========================================================================="
+
   # NETWORKING SECTION ---------------
   # Computer networks basically handle sending stuff over the internet (or to other computers). 
   #
   if ($networking_approve -eq "y")
   {
-    Echo "RETRIEVING NETWORK INFO"
-    Echo "==========================================================================="
-    Echo "ipconfig"
-    Echo "---------------------------------------------------------------------------"
+    Write-Output "RETRIEVING NETWORK INFO"
+    Write-Output "==========================================================================="
+    
+    Write-Output "ipconfig"
+    Write-Output "---------------------------------------------------------------------------"
     ipconfig /all | Out-File -FilePath ~\Documents\HelplineOutput\network.txt | Wait-Process	# Pulls network info 
-    Echo "arp"
-    Echo "---------------------------------------------------------------------------"
+    Write-Output "arp"
+    Write-Output "---------------------------------------------------------------------------"
     arp -a 	| Out-File -Path ~\Documents\HelplineOutput\arp.txt  #ARP(address resolution protocol) table, links MAC addresses to IPs
-    Echo "route print"
-    Echo "---------------------------------------------------------------------------"
+    Write-Output "route print"
+    Write-Output "---------------------------------------------------------------------------"
     route print 	#Review routing table, basically how you reach different networks
-    Echo "Netstat"
-    Echo "---------------------------------------------------------------------------"
+    Write-Output "Netstat"
+    Write-Output "---------------------------------------------------------------------------"
     netstat -ano  #Display active network connections
     Echo "netsh wlan to show wireless profiles"
-    ECho "---------------------------------------------------------------------------"
+    Write-Output "---------------------------------------------------------------------------"
     netsh wlan show profile   #View saved wireless networks
     Echo "Show network shares"
     ECho "---------------------------------------------------------------------------"
