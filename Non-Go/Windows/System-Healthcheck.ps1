@@ -49,6 +49,20 @@ function currentlyTalking{
       Get-SMBShare | Out-File -append -FilePath ~\Documents\HelplineOutput\liveInfo.txt
 }
 
+function currentlyRunning{
+
+      Get-Process 
+      Get-Process -FileVersionInfo
+      Get-service
+      
+}
+
+function getInstalledStuff{
+      Get-CimInstance Win32_StartupCommand | select Name, command, Location, User
+      Get-ScheduledTask | select TaskName,State
+
+}
+
 
 function Helpline-Checks {
   New-Item "~\Documents" -ItemType "directory" -Name "HelplineOutput"    
