@@ -11,6 +11,29 @@
 # TODO: After-action sheet to tell users not to run .exes or .ps1 normally.
 #
 
+function CreatePopupWindow {
+      Add-Type -AssemblyName System.Windows.Forms
+      $FormObject = [System.Windows.Forms.Form]
+      $labelObject = [System.Windows.Forms.Label]
+
+      $mainPage=New-Object $FormObject
+      $mainPage.ClientSize='700,700'
+      $mainPage.Text='The CyberHelpline HealthcareScript'
+      $mainPage.BackColor="white"
+
+      $header=New-Object $LabelObject
+      $header.text='The CyberHelpline healthcare check tool'
+      $header.AutoSize = $true
+      $header.font = 'Verdana,24,style=Bold'
+      $header.Location=New-Object System.Drawing.Point(20,20)
+
+      $mainPage.controls.AddRange(@($header))
+
+      $mainPage.ShowDialog()
+
+      $mainPage.Dispose()
+}
+
 #This grabs your WiFi info.
 function howYouConnectToInternet{ 
       New-Item "~\Documents\HelplineOutput" -ItemType "file" -Name "wifiInfo.txt"
