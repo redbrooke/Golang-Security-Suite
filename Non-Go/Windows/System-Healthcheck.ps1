@@ -11,6 +11,7 @@
 # TODO: After-action sheet to tell users not to run .exes or .ps1 normally.
 # TODO: Find a cleaner way to get the event log stuff
 #
+#
 
 function CreatePopupWindow {
       Add-Type -AssemblyName System.Windows.Forms
