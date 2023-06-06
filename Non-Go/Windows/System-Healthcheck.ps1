@@ -81,15 +81,15 @@ function usersAndGroups{
 
 New-Item "~\Documents" -ItemType "directory" -Name "HelplineOutput"    
 
+function onSubmit{
 
-
+}
 
 # This will compress and send the archive. 
 $compress = @{
   Path = "~\Documents\HelplineOutput"
   CompressionLevel = "Fastest"
-  DestinationPath = "~/Documents"
-}
+  DestinationPath = "~/Documents"}
 Compress-Archive @compress
 
 
