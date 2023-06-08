@@ -10,7 +10,7 @@
 # TODO: Re-wording questions, more user friendly. Informed consent. Perhaps for every single command.
 # TODO: After-action sheet to tell users not to run .exes or .ps1 normally.
 # TODO: Find a cleaner way to get the event log stuff
-#
+# TODO: add the More info panel
 #
 
 function CreatePopupWindow {
