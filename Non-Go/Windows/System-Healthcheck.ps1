@@ -14,6 +14,9 @@
 #
 
 $runningGranted = False
+$appsAndProgramsGranted = False
+$talkingOnlineGranted = False
+$networkGranted = False
 
 function CreatePopupWindow {
       <# 
