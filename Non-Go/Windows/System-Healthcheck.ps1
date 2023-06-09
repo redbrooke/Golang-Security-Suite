@@ -13,6 +13,8 @@
 # TODO: add the More info panel
 #
 
+$runningGranted = False
+
 function CreatePopupWindow {
       <# 
       .NAME
