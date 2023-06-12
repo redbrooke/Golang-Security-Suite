@@ -13,10 +13,13 @@
 # TODO: add the More info panel
 #
 
-$runningGranted = False
+$runningGranted         = False
 $appsAndProgramsGranted = False
-$talkingOnlineGranted = False
-$networkGranted = False
+$talkingOnlineGranted   = False
+$networkGranted         = False
+$accountGranted         = False
+$fileGranted            = False
+
 
 function CreatePopupWindow {
       <# 
@@ -228,12 +231,12 @@ function CreatePopupWindow {
       $Form.controls.AddRange(@($Label2,$Label1,$Label3,$Button1,$Button2,$Consent,$Label4,$Label5,$Button3,$Label6,$Button4,$Label7,$Button5,$Label8,$Button6,$Label9,$Button7,$Label10,$Label11,$CheckBox1,$CheckBox3,$CheckBox4,$CheckBox5,$CheckBox6,$CheckBox7))
      
       $Button1.Add_Click({ onSubmit })
-      $CheckBox1.Add_Click({  })
-      $CheckBox3.Add_Click({  })
-      $CheckBox4.Add_Click({  })
-      $CheckBox5.Add_Click({  })
-      $CheckBox6.Add_Click({  })
-      $CheckBox7.Add_Click({  })
+      $CheckBox1.Add_Click({ $runningGranted         = False  })
+      $CheckBox3.Add_Click({ $appsAndProgramsGranted = False  })
+      $CheckBox4.Add_Click({ $talkingOnlineGranted   = False  })
+      $CheckBox5.Add_Click({ $networkGranted         = False })
+      $CheckBox6.Add_Click({ $accountGranted         = False })
+      $CheckBox7.Add_Click({ $fileGranted            = False })
       
       #region Logic 
 
