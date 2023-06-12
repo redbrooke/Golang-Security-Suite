@@ -292,12 +292,14 @@ New-Item "~\Documents" -ItemType "directory" -Name "HelplineOutput"
 
 function onSubmit{
       
+      echo "Running"
       if ($runningGranted){ currentlyRunning }
       if ($appsAndProgramsGranted){ getInstalledStuff }
       if ($talkingOnlineGranted){ currentlyTalking }
       if ($networkGranted){ howYouConnectToInternet }
       if ($accountGranted){ usersAndGroups environmentInfo }
       if ($fileGranted){ fileNames }
+      echo "Done"
       
       
       # This will compress and send the archive. 
@@ -309,7 +311,7 @@ function onSubmit{
       
 }
 
-
+CreatePopupWindow
 
 
 
