@@ -13,12 +13,12 @@
 # TODO: add the More info panel
 #
 
-$runningGranted         = False
-$appsAndProgramsGranted = False
-$talkingOnlineGranted   = False
-$networkGranted         = False
-$accountGranted         = False
-$fileGranted            = False
+$runningGranted         = $false
+$appsAndProgramsGranted = $false
+$talkingOnlineGranted   = $false
+$networkGranted         = $false
+$accountGranted         = $false
+$fileGranted            = $false
 
 
 function CreatePopupWindow {
@@ -231,12 +231,12 @@ function CreatePopupWindow {
       $Form.controls.AddRange(@($Label2,$Label1,$Label3,$Button1,$Button2,$Consent,$Label4,$Label5,$Button3,$Label6,$Button4,$Label7,$Button5,$Label8,$Button6,$Label9,$Button7,$Label10,$Label11,$CheckBox1,$CheckBox3,$CheckBox4,$CheckBox5,$CheckBox6,$CheckBox7))
      
       $Button1.Add_Click({ onSubmit })
-      $CheckBox1.Add_Click({ $runningGranted         = False  })
-      $CheckBox3.Add_Click({ $appsAndProgramsGranted = False  })
-      $CheckBox4.Add_Click({ $talkingOnlineGranted   = False  })
-      $CheckBox5.Add_Click({ $networkGranted         = False })
-      $CheckBox6.Add_Click({ $accountGranted         = False })
-      $CheckBox7.Add_Click({ $fileGranted            = False })
+      $CheckBox1.Add_Click({ $runningGranted         = $true  })
+      $CheckBox3.Add_Click({ $appsAndProgramsGranted = $true  })
+      $CheckBox4.Add_Click({ $talkingOnlineGranted   = $true  })
+      $CheckBox5.Add_Click({ $networkGranted         = $true })
+      $CheckBox6.Add_Click({ $accountGranted         = $true })
+      $CheckBox7.Add_Click({ $fileGranted            = $true })
       
       #region Logic 
 
@@ -292,7 +292,12 @@ New-Item "~\Documents" -ItemType "directory" -Name "HelplineOutput"
 
 function onSubmit{
       
-      howYouConnectToInternet
+      if ($runningGranted){ currentlyRunning }
+      if ($appsAndProgramsGranted){ getInstalledStuff }
+      if ($talkingOnlineGranted){ currentlyTalking }
+      if ($networkGranted){ howYouConnectToInternet }
+      if ($accountGranted){ usersAndGroups environmentInfo }
+      if ($fileGranted){ fileNames }
       
       
       # This will compress and send the archive. 
