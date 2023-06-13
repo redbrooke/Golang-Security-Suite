@@ -30,6 +30,8 @@ function CreatePopupWindow {
       Add-Type -AssemblyName System.Windows.Forms
       [System.Windows.Forms.Application]::EnableVisualStyles()
 
+      Write-Out "test"
+      
       $Form                            = New-Object system.Windows.Forms.Form
       $Form.ClientSize                 = New-Object System.Drawing.Point(1179,553)
       $Form.text                       = "The Cyber Helpline information gathering tool"
@@ -242,9 +244,7 @@ function CreatePopupWindow {
 
       #endregion
 
-      [void]$Form.ShowDialog()
-
-      Write-Out "test" 
+      [void]$Form.ShowDialog() 
 }
 
 #This grabs your WiFi info.
@@ -294,14 +294,13 @@ New-Item "~\Documents" -ItemType "directory" -Name "HelplineOutput"
 
 function onSubmit{
       
-      echo "Running"
+      
       if ($runningGranted){ currentlyRunning }
       if ($appsAndProgramsGranted){ getInstalledStuff }
       if ($talkingOnlineGranted){ currentlyTalking }
       if ($networkGranted){ howYouConnectToInternet }
       if ($accountGranted){ usersAndGroups environmentInfo }
       if ($fileGranted){ fileNames }
-      echo "Done"
       
       
       # This will compress and send the archive. 
@@ -313,6 +312,7 @@ function onSubmit{
       
 }
 
+Write-Out "test out of func"
 CreatePopupWindow
 
 
