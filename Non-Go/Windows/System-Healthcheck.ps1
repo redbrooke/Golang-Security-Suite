@@ -302,6 +302,7 @@ function onSubmit{
       if ($accountGranted){ usersAndGroups environmentInfo }
       if ($fileGranted){ fileNames }
       
+      Write-Output "test inside of func"
       
       # This will compress and send the archive. 
       $compress = @{
