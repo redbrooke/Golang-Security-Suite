@@ -30,7 +30,7 @@ function CreatePopupWindow {
       Add-Type -AssemblyName System.Windows.Forms
       [System.Windows.Forms.Application]::EnableVisualStyles()
 
-      Write-Out "test"
+      Write-Output "test"
       
       $Form                            = New-Object system.Windows.Forms.Form
       $Form.ClientSize                 = New-Object System.Drawing.Point(1179,553)
@@ -312,7 +312,7 @@ function onSubmit{
       
 }
 
-Write-Out "test out of func"
+Write-Output "test out of func"
 CreatePopupWindow
 
 
